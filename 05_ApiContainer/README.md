@@ -31,7 +31,7 @@ docker images
 ## 2. Containerの起動
 下記の`docker run`コマンドにより、Containerを起動する
 ```
-docker run -d -p 8080:80 \
+docker run -d -p 8080:8080 \
   --name api-container \
   -e DB_USERNAME=root \
   -e DB_PASSWORD=cloudtech \

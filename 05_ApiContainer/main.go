@@ -58,8 +58,10 @@ func database_test() (int, error) {
 	username := os.Getenv("DB_USERNAME")
 	password := os.Getenv("DB_PASSWORD")
 	servername := os.Getenv("DB_SERVERNAME")
-	port := os.Getenv("DB_PORT")
-	dbname := os.Getenv("DB_NAME")
+
+	// 固定となるデータベース接続変数を定義
+	port := "3306"
+	dbname := "testdb"
 
 	// 接続文字列を組み立て
 	connectionString := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", username, password, servername, port, dbname)
@@ -77,7 +79,7 @@ func database_test() (int, error) {
 	defer connection.Close()
 
 	// SQLの実行
-	rows, err := connection.Query("SELECT COUNT(*) AS reservation_count FROM Reservations")
+	rows, err := connection.Query("SELECT COUNT(*) AS reservation_count FROM test_table")
 	if err != nil {
 		return 0, err
 	}
