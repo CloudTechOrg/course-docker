@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: database-container
+    environment:
+      MYSQL_ROOT_PASSWORD: cloudtech
+
+  backend:
+    image: api-image
+    container_name: api-container
+    depends_on:
+      - database-container
+    environment:
+      - DB_USERNAME=root
+      - DB_PASSWORD=cloudtech
+      - DB_SERVERNAME=database-container
+    ports:
+      - "8080:8080"
+
+  frontend:
+    image: front-image
+    container_name: api-container
+    depends_on:
+      - database-container
+    ports:
+      - "8081:80"
