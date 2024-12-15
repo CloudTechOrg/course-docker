@@ -1,54 +1,62 @@
 # 事前準備
-下記のGitHubディレクトリから関連資材がダウンロード（`git clone`）されていること<br>
-https://github.com/CloudTechOrg/course-docker.git
-
-以下のように必要なファイルが構成されていること
-```
-course-container/
-└── 03_simple_container/
-    ├── index.html
-    └── Dockerfile
-```
-
-cdコマンドにより、カレントディレクトリを`03_SimpleContainer`に移動する
-```
-cd 03_SimpleContainer
-```
+Dockerがインストールされていること
 
 ## ハンズオン手順
 
-## 1. イメージの作成
-下記の`docker build`コマンドにより、Dockerイメージを生成する
+## 1. イメージの入手
+下記のコマンドで、`hello-world`のイメージを取得
 ```
-docker build -t first-image .
-```
-
-下記コマンドにより、`first-image`のイメージが出力されることを確認する
-```
-docker images
+docker pull hello-world
 ```
 
-## 2. Containerの起動
-下記の`docker run`コマンドにより、Containerを起動する
+## 2. イメージの一覧取得
+下記のコマンドにより、イメージの一覧を表示する
+
 ```
-docker run -d -p 8080:80 --name first-container first-image
+docker image ls
 ```
 
-下記のコマンドにより`first-container`が実行中（STATUSが`Up xxxx`であること）を確認する
+## 3.Containerの起動
+下記のコマンドにより、`hello-world`のContainerを起動する
+
 ```
-docker ps
+docker container run hello-world
 ```
 
-## 3. 動作確認
-ブラウザにて下記のURLを実行し、HTMLサイトが表示されることを確認する
+## 4. Containerの一覧表示
+以下のコマンドで、`hello-world`のContainerが表示されないことを確認
+
 ```
-http://localhost:8080
+docker container ls
 ```
 
-## 4. 停止および削除
-以下の`docker stop`コマンドで、`first-container`を停止する
+以下のコマンドで、`hello-world`のContainerが表示されることを確認
 ```
-docker stop first-container
+docker container ls --all
 ```
 
-ダウンロードしたイメージを削除する
+## 5. Containerの削除
+以下のコマンドで、Containerを削除する。なお、<container-id>の部分は、`docker container ls --all`コマンドで表示される`CONTAINER ID`を使用する。
+
+```
+docker container rm <container-id>
+```
+
+下記のコマンドで、`hello-world`のContainerが表示されないことを確認
+
+```
+docker container ls -a
+```
+
+## 6. イメージの削除
+下記のコマンドで、`hello-world`のイメージで削除する
+
+```
+docker image rm hello-world
+```
+
+以下のコマンドで、`hello-world`のイメージが表示されないことを確認する
+
+```
+docker image ls
+```
