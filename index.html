@@ -1,0 +1,564 @@
+<style>
+  .cloudtech-container {
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    max-width: 100%;
+    background-color: #f9fafc;
+    border: 1px solid #e6e9ed;
+    border-radius: 8px;
+  }
+
+  .cloudtech-container h2 {
+    font-size: 1.5em;
+    background-color: #e6f7ff;
+    padding: 10px;
+    border-left: 5px solid #0073e6;
+    color: #333;
+    margin: 20px 0 10px;
+    border-radius: 4px;
+  }
+
+  .cloudtech-container p, .cloudtech-container li {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .cloudtech-container a {
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .cloudtech-container a:hover {
+    text-decoration: underline;
+  }
+
+  .cloudtech-container ul {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+
+  .cloudtech-container .note {
+    color: red;
+    font-weight: bold;
+  }
+.template-box {
+  border: 2px solid #0073e6;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 320px; /* 最小スマホ幅（320pxに設定） */
+  max-width: 1000px; /* 最大幅を1000pxに制限 */
+  margin: 0 auto; /* 水平中央配置 */
+}
+    .template-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      color: #0073e6;
+    }
+    .template-content {
+      margin: 5px 0;
+      font-size: 0.95em;
+    }
+
+  /* cloudtech-container内のビジネスライクなテーブルスタイル */
+  .cloudtech-container table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+  }
+
+  .cloudtech-container th,
+  .cloudtech-container td {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    text-align: left;
+  }
+
+  .cloudtech-container th {
+    background-color: #f4f6f8;
+    color: #333333;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .cloudtech-container tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+
+  .cloudtech-container tr:hover {
+    background-color: #eef2f5;
+  }
+
+  .cloudtech-container caption {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #0073e6;
+  }
+</style>
+
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc 
+  src="https://lottie.host/d51b98fe-9566-4f88-8da6-f5957c03b66a/oyDpW5LWJr.lottie" 
+  autoplay loop 
+  style="width: 600px; height: auto;">
+</dotlottie-wc>
+
+<h2>AWS認定資格についてのガイドライン</h2>
+
+<div class="cloudtech-container">
+  <!-- Section 1: Introduction -->
+  <h2>1. はじめに</h2>
+  <h3>ご挨拶</h3>
+  <p>この度は<strong>CloudTech Academy</strong>にご入会いただきありがとうございます。クラウドエンジニアとして活躍するゴールに向けて、一同全力でサポートしますので、どうぞよろしくお願いいたします。</p>
+  <p><strong>正式名称：</strong> CloudTech Academy『クラウドエンジニア6ヶ月育成コース』</p>
+  <p><strong>サービスURL：</strong> <a href="https://kws-cloud-tech.com/cloud-tech-academy" target="_blank" rel="noopener">https://kws-cloud-tech.com/cloud-tech-academy</a></p>
+
+  <!-- Section 2: Course Contents -->
+  <h2>2. 本コースに含まれる内容</h2>
+  <ul>
+    <li>CloudTech学習コンテンツへの永久閲覧権</li>
+    <li>初回面談 1回</li>
+    <li>6ヶ月間のSlackチャットによる技術質問サポート</li>
+    <li>メンターとオンライン会議を使用してのメンタリング（チケット制：計12枚）</li>
+    <li>提携企業によるキャリアサポート（希望者のみ）</li>
+  </ul>
+
+  <!-- Section 3: Schedule -->
+  <h2>3. おおまかな流れ</h2>
+  <h3>1. 初回アンケート回答</h3>
+  <p>学習目的や現在の状況を把握するためのアンケートにご回答ください。</p>
+
+  <h3>2. 初回面談</h3>
+  <p>担当メンターとの初回面談をオンラインで実施します。専用の学習計画を作成しますので、お気軽にご質問やご相談ください。</p>
+
+  <h3>3. スプリント</h3>
+  <p>スプリントはAWS学習範囲を12個に区切った単位です。基本は2週間で1スプリントの学習を行います。</p>
+
+  <h3>4. 転職サポート（希望者のみ）</h3>
+  <p>提携企業による転職サポートを提供します。後からの追加も可能ですので、Slackにてご連絡ください。</p>
+
+  <!-- Section 4: Pre-preparation -->
+  <h2>4. 受講前の事前準備</h2>
+  <ol>
+    <li>
+      <strong>初回アンケートの回答：</strong> 
+      <a href="https://forms.gle/Deo6Byvj91chXAUt6" target="_blank" rel="noopener">アンケートはこちら</a>
+    </li>
+    <li>
+      <strong>Slackワークスペースへの参加：</strong> 連絡事項はSlackを通じて行います。
+      <p class="highlight">&#x26a0;&#xfe0f; Slackに参加されないと学習がスタートしませんのでご注意ください。</p>
+    </li>
+    <li>
+      <strong>利用規約の確認：</strong> 
+      <a href="https://kws-cloud-tech.com/%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84" target="_blank" rel="noopener">利用規約はこちら</a>
+    </li>
+    <li>
+      <strong>基礎知識の理解：</strong> IT基礎知識に自信がない方は、<strong>以下の講座</strong>をご確認ください。
+    </li>
+  </ol>
+  <p><strong>基礎講座：</strong> Amazon Web Servicesの基礎知識</p>
+</div>
+
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/56fb79bb-12d1-48ff-9706-77467e99ab67/4HJQrJLgxF.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+
+<div class="cloudtech-container">
+  <h1>2. 受講前の事前準備</h1>
+  <p>CloudTech Academyでの学習をスムーズにスタートするために、以下のご対応をお願いいたします。</p>
+
+  <h2>1. 初回アンケートの回答</h2>
+  <p><a href="https://forms.gle/Deo6Byvj91chXAUt6" target="_blank" rel="noopener">https://forms.gle/Deo6Byvj91chXAUt6</a></p>
+
+  <h2>2. Slackワークスペースへの参加</h2>
+  <p>CloudTech Academyにおける各種連絡事項は、今後Slackを通じて行います。</p>
+  <ol>
+    <li>すでに<strong>[AWS CloudTech]</strong>ワークスペースに参加済みの方は、この手順をスキップして構いません。</li>
+    <li>Slack参加後に特に何もアクションをする必要はございません。</li>
+    <li>スマートフォンにSlackアプリをインストールしてください。</li>
+  </ol>
+  <div class="note">
+    &#x26a0;&#xfe0f; <span class="highlight">[AWS CloudTech]ワークスペースに参加されないと学習がスタートしないため、ご注意ください。</span>
+  </div>
+
+  <h2>3. 利用規約の確認</h2>
+  <p>CloudTech Academyの利用規約について、事前にご確認お願いします。</p>
+  <p><a href="https://kws-cloud-tech.com/利用規約" target="_blank" rel="noopener">https://kws-cloud-tech.com/利用規約</a></p>
+
+  <h2>4. 基礎知識の理解</h2>
+  <p>CloudTech AcademyはAWSの学習が中心となりますが、IT基礎知識を習得していることが前提となります。</p>
+  <p>基礎知識に自信がない場合は、以下の講座をご確認ください。</p>
+  <ul>
+    <li><a href="https://kws-cloud-tech.com/lessons/基礎講座" target="_blank" rel="noopener">基礎講座</a></li>
+    <li><a href="https://kws-cloud-tech.com/lessons/amazon-web-servicesの基礎知識-2-2" target="_blank" rel="noopener"><strong>Amazon Web Servicesの基礎知識</strong></a></li>
+  </ul>
+</div>
+
+<!-- Closing Animation2 -->
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/1d3b97f3-e6f6-4162-82dc-d22361132adc/f8f21eocCa.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+
+<div class="cloudtech-container">
+  <h1>3. スプリントの流れ</h1>
+  <img src="https://kws-cloud-tech.com/wp-content/uploads/2024/12/sprint-flow.png" alt="スプリントの流れ">
+
+  <p>スプリントとは、ITプロジェクトのアジャイル開発における専門用語で「一定の短い期間ごとに、作業の計画を立てて実現する方式」です。</p>
+  <p>CloudTech Academyでは目標とするAWS技術領域を12のスプリントに分割し、2週間で1つのスプリント学習の実施を基本的な流れとしています。</p>
+
+  <h2>1. 動画学習</h2>
+  <p>CloudTechの学習動画を視聴し、AWSの理解を深めます。CloudTechの動画はスプリントの単位でまとまっているので、上から順番に視聴していだければ問題ありません。</p>
+
+  <h2>2. 課題</h2>
+  <p>スプリントごとに課題を用意しています。</p>
+
+  <h3>課題の構成</h3>
+  <ol>
+    <li>動画の理解度確認<br>動画の理解度を確認するために、簡単な問題に回答していただきます。基本的に、動画で登場する用語について簡単に説明してもらう問題となります。</li>
+    <li>応用問題<br>スプリントの内容を応用するための問題となります。AWS構成図を記載する問題であったり、実際のAWS設定値を考えてもらう問題などを用意しています。</li>
+    <li>ハンズオン課題（疑似案件）<br>CloudTech Academyの目玉でもある、疑似案件を想定したハンズオン課題に取り組んでいただきます。</li>
+  </ol>
+
+  <h3>ヒアリングシート</h3>
+  <p>課題の回答をヒアリングシートに記載し、提出していただきます。ヒアリングシートの内容は、別途メンターからご提示いたします。</p>
+  <p>ヒアリングシートの提出後、メンターが確認を行い、フィードバックさせていただきます。メンターからのフィードバックを待つ間、次のスプリントに進んでいただいて構いません。</p>
+
+  <h2>3. メンタリング</h2>
+  <p>メンタリングチケットを使用してメンターとオンライン会議で課題に対する取り組みや学習状況をフィードバックします。</p>
+
+  <h2>4. スプリントの期間について</h2>
+  <p>目安としては1つのスプリントを2週間で完了させますが、理解度などに応じてメンターと調整の上で学習計画を組み立てることもできます。</p>
+  <p>必要に応じてメンターとご調整ください。</p>
+</div>
+
+<!-- Closing Animation3 -->
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/d0de381b-ae32-4045-8425-36a14d1b57ae/1LowRnxml8.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+
+<div class="cloudtech-container">
+  <h1>4. ハンズオン課題（擬似案件）</h1>
+  <p>この課題では、クラウドエンジニアの実務を体験します。あなたのミッションは、擬似的な予約管理システムを稼働させるためのAWSクラウド環境を構築することです。</p>
+  <p>あなたはインフラチームの「メンバー」として、「リーダー」役のメンターの指示に基づき作業を進めます。リーダーから提供される要件をもとに、指定されたインフラ環境を構築し、期日までに成果物を提出してください。</p>
+
+  <h2>1. 成果物のイメージ</h2>
+  <p>最終的な成果物として以下のような構成を作成していきます。</p>
+  <img src="https://kws-cloud-tech.com/wp-content/uploads/2024/12/Academy-archtecture.png" alt="成果物のイメージ">
+
+<table border="1" cellspacing="0" cellpadding="8">
+  <thead>
+    <tr>
+      <th>テーマ</th>
+      <th>該当スプリント</th>
+      <th>概要</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. Webアプリケーションのデプロイ</td>
+      <td>スプリント1〜5</td>
+      <td>擬似予約管理システムをデプロイし、動作環境を構築します。最終的にはコンテナで運用します。</td>
+    </tr>
+    <tr>
+      <td>2. CI/CDパイプライン</td>
+      <td>スプリント6</td>
+      <td>アプリケーションの変更を検知し、自動でデプロイさせる環境を準備します。</td>
+    </tr>
+    <tr>
+      <td>3. インフラのコード化</td>
+      <td>スプリント7</td>
+      <td>インフラ環境をコード管理し、メンテナンス性を高めます。</td>
+    </tr>
+    <tr>
+      <td>4. サーバレスアーキテクチャ</td>
+      <td>スプリント8〜9</td>
+      <td>サーバレス技術を使った口コミ投稿機能を構築します。</td>
+    </tr>
+    <tr>
+      <td>5. データ分析</td>
+      <td>スプリント11</td>
+      <td>システムで扱うデータの分析や可視化を行える環境を構築します。</td>
+    </tr>
+    <tr>
+      <td>6. 組織管理</td>
+      <td>スプリント12</td>
+      <td>組織でAWSを利用するためのマルチアカウント管理やセキュリティ管理の設定を行います。</td>
+    </tr>
+  </tbody>
+</table>
+
+
+  <h2>2. 進め方</h2>
+  <p>これらを一気に作るのではなく、スプリントごとに段階的に構築していきます。</p>
+
+<table border="1" cellspacing="0" cellpadding="8">
+  <thead>
+    <tr>
+      <th>テーマ</th>
+      <th>概要</th>
+      <th>利用サービス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>スプリント1: ネットワークとサーバ</td>
+      <td>基本のWebサーバとAPIサーバをEC2インスタンス上に構築します。</td>
+      <td>Amazon VPC, Amazon EC2</td>
+    </tr>
+    <tr>
+      <td>スプリント2: 基本サービス2</td>
+      <td>RDSインスタンスを構築し、APIサーバから接続できるようにします。</td>
+      <td>Amazon RDS, AWS IAM</td>
+    </tr>
+    <tr>
+      <td>スプリント3: 冗長化構成</td>
+      <td>APIサーバを複数のAZに配置し、ALBによる負荷分散とオートスケーリングを設定します。</td>
+      <td>Application Load Balancer, Auto Scaling Group, CloudWatch</td>
+    </tr>
+    <tr>
+      <td>スプリント4: コンテンツ配信</td>
+      <td>WebサーバをS3に移行し、CloudFront、Route53、ACMでHTTPS化します。</td>
+      <td>Amazon S3, CloudFront, Route53, ACM</td>
+    </tr>
+    <tr>
+      <td>スプリント5: コンテナ</td>
+      <td>APIサーバをECS（Fargate）に移行します。</td>
+      <td>Amazon ECS, AWS Fargate, Amazon ECR</td>
+    </tr>
+    <tr>
+      <td>スプリント6: DevOps</td>
+      <td>CI/CDパイプラインを構築し、デプロイを効率化します。</td>
+      <td>AWS CodePipeline, CodeBuild, CodeDeploy</td>
+    </tr>
+    <tr>
+      <td>スプリント7: インフラのコード化</td>
+      <td>AWS構成をTerraformでコード化します。</td>
+      <td>Terraform</td>
+    </tr>
+    <tr>
+      <td>スプリント8: サーバレス</td>
+      <td>サーバレスサービスを組み合わせ、口コミ投稿機能を構築します。</td>
+      <td>AWS Lambda, DynamoDB, API Gateway</td>
+    </tr>
+    <tr>
+      <td>スプリント9: 生成AIと応用</td>
+      <td>口コミへの回答を生成AIで作成し、メール返信機能を構築します。</td>
+      <td>Amazon Bedrock, Amazon SES</td>
+    </tr>
+    <tr>
+      <td>スプリント10: アプリケーション統合</td>
+      <td>サーバレス機能をSQSとStep Functionsで統合します。</td>
+      <td>Amazon SQS, AWS Step Functions</td>
+    </tr>
+    <tr>
+      <td>スプリント11: データ分析</td>
+      <td>Glueでデータを抽出し、AthenaとQuickSightで分析と可視化を行います。</td>
+      <td>AWS Glue, Amazon Athena, QuickSight</td>
+    </tr>
+    <tr>
+      <td>スプリント12: マルチアカウント</td>
+      <td>マルチアカウント管理やセキュリティ設定を行います。</td>
+      <td>AWS Organizations</td>
+    </tr>
+  </tbody>
+</table>
+
+
+  <h2>3. AWS利用料金について</h2>
+  <p>この課題では無料利用枠だけではカバーできないため、一部料金が発生します。特に、サービスを使用し続けると料金が増加する可能性があるため、<span class="highlight">使わないリソースは停止</span>してください。</p>
+  <ul>
+    <li>各スプリントのページに料金を抑えるための注意点を記載しています。</li>
+    <li>適切に管理すれば、全体で約3,000円以内に抑えられる見込みです。</li>
+  </ul>
+
+  <h2>4. 最後までやりきるために</h2>
+  <h3>主体性</h3>
+  <p>課題に対して自主的に取り組み、独自の構築方法を提案してください。不明点がある場合は、「この方法で計画しています」といった具体的な提案を含めてメンターに相談することが推奨されます。</p>
+
+  <h3>納期意識</h3>
+  <p>各スプリントには目標と納期が設定されています。納期を守るために計画を立て、進捗をメンターに共有してください。</p>
+
+  <h3>報告と相談</h3>
+  <p>進捗や問題点をメンターに定期的に報告してください。</p>
+
+  <h2>Q&A</h2>
+  <blockquote>事情により後半の課題を先に実施したいのですが、入れ替え可能でしょうか？</blockquote>
+  <p>はい、可能です。ただし、以下の課題は順序に依存しているためご注意ください：</p>
+  <ul>
+    <li>スプリント1〜6は連続した構成となります。</li>
+    <li>スプリント8〜10も連続しています。</li>
+  </ul>
+
+  <blockquote>すべての課題を完了させる自信がないため、内容を省略して、できる部分を集中して実施することは可能でしょうか？</blockquote>
+  <p>はい、可能です。課題の範囲は個別に調整可能ですので、メンターにご相談ください。</p>
+</div>
+
+<!-- Closing Animation4 -->
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/e258b988-d7e5-4d3b-b166-b0907489d36c/BVGicklL7d.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+
+<div class="cloudtech-container">
+  <h1>5. メンタリング</h1>
+
+  <h2>1. メンタリングとは</h2>
+  <p>メンタリングは、Slackによるテキストコミュニケーションだけではカバーしきれない部分をサポートするために行います。以下を目的として、全12回のセッションを実施します。</p>
+  <ul>
+    <li>課題へのフィードバック</li>
+    <li>学習内容の理解度チェック</li>
+    <li>学習状況の確認とサポート</li>
+    <li>不明点や不安の解消</li>
+    <li>学習方法のアドバイス</li>
+  </ul>
+  <p>これにより、効率的かつ効果的な学習を進めるお手伝いをいたします。</p>
+
+  <h2>実施方法</h2>
+  <p>原則として、Google Meetを使用してオンラインで行います。</p>
+
+  <h2>実施タイミング</h2>
+  <p>通常は各スプリント期間の最後に実施することを推奨します。ただし、ご都合に応じて調整可能です。担当メンターと日程を調整し、案内に沿ってセッションを実施してください。</p>
+
+  <h2>2. キャンセルポリシー</h2>
+  <h3>メンタリングの振替</h3>
+  <ul>
+    <li>メンタリング日の <span class="highlight">前日20:00まで</span> にご連絡いただければ、別の日程への振替が可能です。</li>
+    <li>振替を希望される場合は、Slackで担当メンターにお知らせください。</li>
+  </ul>
+
+  <h3>当日キャンセル</h3>
+  <ul>
+    <li>前日20:00以降のキャンセルは <span class="highlight">当日キャンセル</span> とみなされます。この場合、メンタリングチケット1回分が消費されます。</li>
+    <li>当日キャンセルでも、メンターは待機しておりますので必ずご連絡をお願いいたします。</li>
+    <li>特別なペナルティはありませんのでご安心ください。</li>
+  </ul>
+
+  <h3>無断キャンセル</h3>
+  <ul>
+    <li>当日に連絡なくメンタリングに参加されない場合、<span class="highlight">無断キャンセル</span> とみなされます。この場合、振替はできず、チケット1回分が消費されます。</li>
+    <li>正当な理由がない無断キャンセルが続くと、学習進行が難しくなる場合がありますのでご注意ください。</li>
+  </ul>
+
+  <h3>遅刻について</h3>
+  <ul>
+    <li>開始時刻に遅れて参加された場合も、終了時刻は予定どおりとなります。延長対応はできませんのでご了承ください。</li>
+  </ul>
+
+  <h2>Q&A</h2>
+  <blockquote>メンタリング日までに予定していた学習が完了していない場合、日程をずらしたほうが良いですか？</blockquote>
+  <p>その必要はありません。メンタリングは進捗がうまくいかない場合のフォローも含めて実施します。</p>
+
+  <blockquote>短期間にメンタリングを集中して実施することは可能ですか？</blockquote>
+  <p>はい、可能です。担当メンターにご相談ください。</p>
+
+  <blockquote>受講期限までに12回のメンタリングが実施できなかった場合、期間後に対応してもらえますか？</blockquote>
+  <p>対応できません。受講期間内に完了していただく必要があります。ただし、有料の延長プランもご用意していますのでご相談ください。</p>
+</div>
+
+<!-- Closing Animation5 -->
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/11911efb-c3b4-4e7f-bf0c-d66376ab5bf4/UbQoffZ9iT.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+
+
+<div class="cloudtech-container">
+    <h1>6. 技術質問</h1>
+  
+    <h2>1. 技術質問の流れ</h2>
+    <p>CloudTech Academyの受講期間内は、専属メンターに技術質問が可能です。</p>
+    <ul>
+      <li>Slackの <code>#55_academy_xx-氏名</code> チャンネルで、担当メンターにメンションを付けて質問を投稿してください。</li>
+      <li>後述のテンプレートを利用してください。仮説の記載がない場合は差し戻しさせていただくことがあります。</li>
+      <li>最大24時間以内に回答します。追加情報が必要な場合はご協力ください。</li>
+    </ul>
+  
+    <h2>2. 技術質問の範囲</h2>
+    <h3>対象となる技術質問</h3>
+    <p>技術質問の対象は以下の内容です。</p>
+    <ol>
+      <li>教材に対する不明点の確認<br>
+        <span class="highlight">例：動画のXXXの説明は、XXXという理解で合っていますか？</span>
+      </li>
+      <li>ハンズオン課題の実装確認やエラー解決<br>
+        <span class="highlight">例1：課題のXXX部分をこのように実装しようと思いますが、懸念点はありますか？<br>
+        例2：XXXというエラーが発生しており、解決策を教えてほしい。</span>
+      </li>
+    </ol>
+  
+    <h3>対象外の技術質問</h3>
+    <p>以下は対象外となります。</p>
+    <ol>
+      <li>実業務に関連する質問<br>
+        <span class="highlight">例：業務で発生したEC2エラーを解析してほしい。</span>
+      </li>
+      <li>カリキュラム外の質問<br>
+        <span class="highlight">例：Azureで同じ構成を構築する方法は？</span>
+      </li>
+      <li>企業に関する質問<br>
+        <span class="highlight">例：XXX企業から内定が出ましたが、入社すべきですか？</span>
+      </li>
+    </ol>
+  
+    <h2>3. テンプレートの利用</h2>
+    <p>質問は以下のテンプレートを活用してください。</p>
+  
+    <h1>3つのテンプレートボックス</h1>
+    <div class="template-container">
+  
+      <!-- テンプレート1 -->
+      <div class="template-box">
+        <div class="template-title">不明点がある場合</div>
+        <div class="template-content">■ 区分<br>不明点の確認</div>
+        <div class="template-content">■ 質問内容<br>（質問内容を簡潔に記載）</div>
+        <div class="template-content">■ 自分の仮説<br>（自分なりの考え）</div>
+        <div class="template-content">■ その他<br>（特記事項があれば）</div>
+      </div>
+  
+      <!-- テンプレート2 -->
+      <div class="template-box">
+        <div class="template-title">エラーが発生している場合</div>
+        <div class="template-content">■ 区分<br>エラーの解決方法</div>
+        <div class="template-content">■ 目的<br>（達成したいこと）</div>
+        <div class="template-content">■ 実施した操作<br>（エラー発生までの手順）</div>
+        <div class="template-content">■ エラー内容<br>（エラーメッセージ・関連ログ）</div>
+        <div class="template-content">■ 試したこと<br>（解決のために試したこと）</div>
+        <div class="template-content">■ 自分の仮説<br>（エラーの原因についての考え）</div>
+      </div>
+  
+      <!-- テンプレート3 -->
+      <div class="template-box">
+        <div class="template-title">認識の確認をしたい場合</div>
+        <div class="template-content">■ 区分<br>認識の確認</div>
+        <div class="template-content">■ 自分の認識<br>（理解内容）</div>
+        <div class="template-content">■ その根拠<br>（理解した理由や根拠）</div>
+        <div class="template-content">■ その他<br>（特記事項があれば）</div>
+      </div>  
+    <h2>Q&A</h2>
+    <blockquote>なぜテンプレートに沿って質問する必要があるのですか？</blockquote>
+    <p>テンプレートにより効率的な質問ができ、メンターも適切な回答がしやすくなります。また、仮説を立てる力が身につき、実務でも評価されるエンジニアに成長できます。</p>
+  
+    <blockquote>メンターの回答が24時間かかる間に学習が止まってしまいます。</blockquote>
+    <p>エラー箇所以外を進めるか、次のスプリントに着手してください。</p>
+  
+    <blockquote>ヒントしか提示されず、答えを教えてもらえませんでした。</blockquote>
+    <p>CloudTech Academyでは、自立的な問題解決スキルを重視しているため、ヒントを提供します。再質問は遠慮なく行ってください。</p>
+  
+    <blockquote>初歩的なことを聞いて怒られませんか？</blockquote>
+    <p>ご安心ください。理解度には個人差がありますので、遠慮なくご質問ください。</p>
+  </div>
+  </div>
+
+  <!-- Closing Animation6 -->
+  <div class="animation-container">
+    <dotlottie-player 
+      src="https://lottie.host/56fb79bb-12d1-48ff-9706-77467e99ab67/4HJQrJLgxF.lottie" 
+      background="transparent" speed="1" 
+      style="width: 200px; height: 200px; margin: 0 auto;" 
+      loop autoplay>
+    </dotlottie-player>
+  </div>

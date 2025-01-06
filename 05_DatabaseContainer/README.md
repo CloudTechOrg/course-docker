@@ -2,17 +2,9 @@
 下記のGitHubディレクトリから関連資材がダウンロード（`git clone`）されていること<br>
 https://github.com/CloudTechOrg/course-docker.git
 
-以下のように必要なファイルが構成されていること
-```
-course-container/
-└── 03_simple_container/
-    ├── index.html
-    └── Dockerfile
-```
-
 cdコマンドにより、カレントディレクトリを`04_DatabaseContainer`に移動する
 ```
-cd 04_DatabaseContainer
+cd 05_DatabaseContainer
 ```
 
 ## ハンズオン手順
