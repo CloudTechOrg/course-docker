@@ -22,15 +22,11 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o server .
 # ベースイメージを指定（Alpine Linuxの最新版）
 FROM alpine:latest
 
-RUN echo "テスト"
-
 # ワーキングディレクトリを設定
 WORKDIR /root/
 
 # ビルドした実行ファイルをコピー
 COPY --from=builder /app/server .
-
-RUN if [ -f ./server ]; then echo "ある"; else echo "ない"; fi
 
 # ポート8080を開放
 EXPOSE 8080

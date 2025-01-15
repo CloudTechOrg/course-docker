@@ -1,55 +1,55 @@
 # 事前準備
-Dockerがインストールされていること
+- Dockerがインストールされていること
 
-## ハンズオン手順
+# ハンズオン手順
 
 ## 1. イメージの入手
-下記のコマンドで、`hello-world`のイメージを取得
+`hello-world`のイメージを取得する
 ```
 docker pull hello-world
 ```
 
 ## 2. イメージの一覧取得
-下記のコマンドにより、イメージの一覧を表示する
+イメージの一覧を表示する
 
 ```
 docker image ls
 ```
 
-## 3.Containerの起動
-下記のコマンドにより、`hello-world`のContainerを起動する
+## 3.コンテナーの起動
+`hello-world`のコンテナーを起動する
 
 ```
 docker container run hello-world
 ```
 
-## 4. Containerの一覧表示
-以下のコマンドで、`hello-world`のContainerが表示されないことを確認
+## 4. コンテナーの一覧表示
+下記コマンドで`hello-world`のコンテンナーが表示`されないこと`を確認（起動後すぐに停止するため）
 
 ```
 docker container ls
 ```
 
-以下のコマンドで、`hello-world`のContainerが表示されることを確認
+下記コマンドで`hello-world`のContainerが表示されることを確認
 ```
 docker container ls --all
 ```
 
 ## 5. Containerの削除
-以下のコマンドで、Containerを削除する。なお、<container-id>の部分は、`docker container ls --all`コマンドで表示される`CONTAINER ID`を使用する。
+コンテナーを削除する。（`<container-id>`の部分は、`docker container ls --all`コマンドで表示される`CONTAINER ID`を設定する。
 
 ```
 docker container rm <container-id>
 ```
 
-下記のコマンドで、`hello-world`のContainerが表示されないことを確認
+`hello-world`のコンテナーが表示されないことを確認
 
 ```
 docker container ls -a
 ```
 
 ## 6. イメージの削除
-下記のコマンドで、`hello-world`のイメージで削除する
+`hello-world`のイメージで削除する
 
 ```
 docker image rm hello-world

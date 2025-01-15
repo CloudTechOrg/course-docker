@@ -18,24 +18,24 @@ cd 05_ApiContainer
 ## ハンズオン手順
 
 ## 1. イメージの作成
-下記の`docker build`コマンドにより、Dockerイメージを生成する
+下記の`docker image build`コマンドにより、Dockerイメージを生成する
 ```
-docker build -t api-image .
+docker image build -t api-image .
 ```
 
 下記コマンドにより、`api-image`のイメージが出力されることを確認する
 ```
-docker images
+docker image ls
 ```
 
 ## 2. Containerの起動
-下記の`docker run`コマンドにより、Containerを起動する
+下記の`docker container run`コマンドにより、Containerを起動する
 ```
-docker run -d -p 8080:8080 \
+docker container run -p 8080:8080 \
   --name api-container \
   -e DB_USERNAME=root \
   -e DB_PASSWORD=cloudtech \
-  -e DB_SERVERNAME=localhost \
+  -e DB_SERVERNAME=db-container \
   api-image
 ```
 

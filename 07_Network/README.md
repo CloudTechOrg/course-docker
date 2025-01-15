@@ -3,7 +3,7 @@
 ## 1. Docker Networkを作成
 以下のコマンドで、`my-network`というDocker Networkを作成する
 ```
-docker network create my-network
+docker network create api-network
 ```
 
 `my-network`が作成されていることを確認する
@@ -15,7 +15,11 @@ docker network ls
 下記のコマンドで、すでに起動されている`database-container`に`my-network`を接続する
 
 ```
-docker network connect my-network database-container
+docker network connect api-network db-container
+```
+
+```
+docker network connect api-network api-container
 ```
 
 ## 3. api-containerを一度作り直す
@@ -44,7 +48,7 @@ docker run -d -p 8080:8080 \
 ## 4. ネットワークに所属していることを確認
 以下のコマンドで、`my-network`に`database-container`と`api-container`が所属しhていることを確認する
 ```
-docker network inspect my-network
+docker network inspect api-network
 ```
 
 ## 5. 動作確認
