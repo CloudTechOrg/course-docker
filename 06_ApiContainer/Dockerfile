@@ -1,20 +1,39 @@
-# ベースイメージとして公式のGo 1.23を使用
-FROM golang:1.23
+# --------------------
+# ビルドステージ
+# --------------------
+# ベースイメージを指定（Go言語 ver1.23）
+FROM golang:1.23 AS builder
 
-# 作業ディレクトリを設定
-WORKDIR /usr/src/app
+# ワーキングディレクトリを設定
+WORKDIR /app
 
-# 依存関係のダウンロードに必要なファイルをコピー
-COPY go.mod go.sum ./
-
-# go.modに基づいて依存関係をダウンロードし、整合性を検証
-RUN go mod download && go mod verify
-
-# アプリケーションの全ファイルをコンテナ内にコピー
+# ソースコードをコピー
 COPY . .
 
-# Goアプリケーションをビルドし、実行可能ファイルを指定の場所に出力
-RUN go build -v -o /usr/local/bin/app ./...
+# 依存関係をダウンロード
+RUN go mod download
 
-# コンテナ起動時に実行するコマンドを指定
-CMD ["app"]
+# 実行可能ファイルをビルド
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o server .
+
+# --------------------
+# 実行ステージ
+# --------------------
+# ベースイメージを指定（Alpine Linuxの最新版）
+FROM alpine:latest
+
+RUN echo "テスト"
+
+# ワーキングディレクトリを設定
+WORKDIR /root/
+
+# ビルドした実行ファイルをコピー
+COPY --from=builder /app/server .
+
+RUN if [ -f ./server ]; then echo "ある"; else echo "ない"; fi
+
+# ポート8080を開放
+EXPOSE 8080
+
+# 実行可能ファイルを実行
+CMD ["./server"]
