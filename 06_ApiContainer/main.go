@@ -31,7 +31,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "API接続テストが成功しました")
 }
 
-func TestHandler(w http.ResponseWriter, r *http.Request) {
+func DbTestHandler(w http.ResponseWriter, r *http.Request) {
 	// CORSヘッダーを設定
 	w.Header().Set("Access-Control-Allow-Origin", "*")             // すべてのオリジンからのアクセスを許可
 	w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS") // GETとOPTIONSメソッドを許可
@@ -103,7 +103,7 @@ func main() {
 
 	// /パスにアクセスがあった場合に、helloHandler関数を実行するように設定
 	http.HandleFunc("/", helloHandler)
-	http.HandleFunc("/test", TestHandler)
+	http.HandleFunc("/dbtest", DbTestHandler)
 
 	// 8080ポートでサーバーを起動
 	fmt.Println("HTTPサーバを起動しました。ポート: " + apiport)
