@@ -1,45 +1,35 @@
-# 事前準備
-下記のGitHubディレクトリから関連資材がダウンロード（`git clone`）されていること<br>
-https://github.com/CloudTechOrg/course-docker.git
-
-cdコマンドにより、カレントディレクトリを`04_DatabaseContainer`に移動する
-```
-cd 05_DatabaseContainer
-```
-
 ## ハンズオン手順
 
 ## 1. イメージの取得
-下記の`docker pull`コマンドにより、MySQLをベースとしたイメージを取得する
+`mysql:latest`のベースイメージを取得する
 ```
 docker pull mysql:latest
 ```
 
 ## 2. Containerの起動
-下記の`docker run`コマンドにより
+`db-container`を起動する
 ```
-docker run --name database-container -e MYSQL_ROOT_PASSWORD=cloudtech -d mysql:latest
+docker container run --name db-container -e YSQL_ROOT_PASSWORD=cloudtech mysql:latest
 ```
 
 ## 3. MySQLにログイン
-下記の`docker exec`コマンドにより、MySQLにログインする
+MySQLにログインする
 ```
-docker exec -it database-container mysql -u root -p
+docker exec -it db-container mysql -u root -p
 ```
 
-パスワードの入力が促されるので、Container起動時に指定した`MYSQL_ROOT_PASSWORD`の値を入力
+パスワードの入力が促されるので、Container起動時に指定した`MYSQL_ROOT_PASSWORD`の値を入力する
 ```
 Enter password: 
 ```
 
-## 5. データベースの作成
-下記のSQLを実行し、`testdb`データベースを作成する
+## 5. テストデータを作成
+`testdb`データベースを作成する
 ```sql
 CREATE DATABASE testdb;
 ```
 
-## 6. テーブルの作成
-下記のSQLを実行し、`test_table`テーブルを作成する
+`test_table`テーブルを作成する
 ```sql
 CREATE TABLE testdb.test_table (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -48,22 +38,34 @@ CREATE TABLE testdb.test_table (
 );
 ```
 
-## 7. データの作成
-下記のSQLを実行し、テスト用のデータを登録する
+テスト用のデータを登録する
 ```sql
 INSERT INTO
     testdb.test_table (name, age) 
-    VALUES ('テスト太郎', 25);
+    VALUES ('Test Taro', 30);
 ```
 
-## 8. データの確認
-下記のSQLを実行し、登録されたデータの確認をする
+```sql
+INSERT INTO
+    testdb.test_table (name, age) 
+    VALUES ('Test Jiro', 22);
+```
+
+```sql
+INSERT INTO
+    testdb.test_table (name, age) 
+    VALUES ('Test Hanako', 25);
+```
+
+登録されたデータの確認をする
 ```sql
 SELECT * FROM testdb.test_table;
 ```
 
 ## 9. MySQLからログアウト
-以下のコマンドを実行し、MySQLからログアウトする
+MySQLからログアウトする
 ```
 exit
 ```
+
+起動したdb-containerは、このあとも利用するため削除せずに残しておく
