@@ -41,3 +41,9 @@ docker network inspect my-network
 curl http://localhost:8080/dbtest
 ```
 
+# 補足
+docker container runに`--network`オプションを指定すると、コンテナー起動時にネットワークを関連付けることが可能
+
+```
+docker container run --name <container-name> --network <network-name> <image-name>
+```

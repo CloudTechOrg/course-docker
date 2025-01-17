@@ -101,7 +101,7 @@ func main() {
 	// APIポートを8080に固定
 	apiport := "8080"
 
-	// /パスにアクセスがあった場合に、helloHandler関数を実行するように設定
+	// /パスにアクセスがあった場合に、Handler関数を実行するように設定
 	http.HandleFunc("/", helloHandler)
 	http.HandleFunc("/dbtest", DbTestHandler)
 
