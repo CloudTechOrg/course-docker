@@ -42,9 +42,3 @@ docker image ls
 ```
 curl http://localhost:8080
 ```
-
-## 4. 停止および削除
-以下の`docker stop`コマンドで、`api-container`を停止する
-```
-docker stop api-container
-```
