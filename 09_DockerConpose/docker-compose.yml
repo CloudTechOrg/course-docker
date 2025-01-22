@@ -21,7 +21,7 @@ services:
 
   frontend:
     image: front-image
-    container_name: api-container
+    container_name: front-container
     depends_on:
       - database-container
     ports:
