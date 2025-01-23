@@ -3,6 +3,12 @@
 - api-container
 - db-container
 
+もし停止中である場合、以下のコマンドで起動させる
+```
+docker container start api-container
+docker container start db-container
+```
+
 # ハンズオン手順
 
 ## 1. Dockerネットワークを作成
@@ -17,21 +23,21 @@ docker network ls
 ```
 
 ## 2. ネットワークにコンテナーを割り当て
-下記のコマンドで、すでに起動されている`database-container`に`my-network`を接続する
+下記のコマンドで、すでに起動されているコンテナーを`my-network`に接続する
 
-db-containerをapi-networkに割り当て
+`db-container`を`api-network`に割り当て
 ```
-docker network connect api-network db-container
+docker network connect db-network db-container
 ```
 
-api-containerをapi-networkに割り当て
+`api-container`を`api-network`に割り当て
 ```
 docker network connect api-network api-container
 ```
 
 ネットワークの状態を確認
 ```
-docker network inspect my-network
+docker network inspect api-network
 ```
 
 ## 3. 動作確認
@@ -42,7 +48,7 @@ curl http://localhost:8080/dbtest
 ```
 
 # 補足
-docker container runに`--network`オプションを指定すると、コンテナー起動時にネットワークを関連付けることが可能
+`docker container run`実行時に`--network`オプションを指定すると、コンテナー起動時にネットワークを関連付けることが可能
 
 ```
 docker container run --name <container-name> --network <network-name> <image-name>
