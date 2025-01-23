@@ -10,11 +10,6 @@ course-container/
     └── Dockerfile
 ```
 
-cdコマンドにより、カレントディレクトリを`07_FrontContainer`に移動する
-```
-cd 07_FrontContainer
-```
-
 ## ハンズオン手順
 
 ## 1. イメージの作成
@@ -23,20 +18,20 @@ cd 07_FrontContainer
 docker build -t front-image .
 ```
 
-下記コマンドにより、`first-image`のイメージが出力されることを確認する
+下記コマンドにより、`front-image`のイメージが出力されることを確認する
 ```
-docker images
+docker image ls
 ```
 
 ## 2. Containerの起動
 下記の`docker run`コマンドにより、Containerを起動する
 ```
-docker run -d -p 8081:80 --name front-container front-image
+docker container run -p 8081:80 --name front-container front-image
 ```
 
 下記のコマンドにより`front-container`が実行中（STATUSが`Up xxxx`であること）を確認する
 ```
-docker ps
+docker container ls
 ```
 
 ## 3. 動作確認

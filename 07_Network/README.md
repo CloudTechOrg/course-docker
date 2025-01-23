@@ -27,7 +27,7 @@ docker network ls
 
 `db-container`を`api-network`に割り当て
 ```
-docker network connect db-network db-container
+docker network connect api-network db-container
 ```
 
 `api-container`を`api-network`に割り当て

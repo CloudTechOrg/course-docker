@@ -34,7 +34,7 @@ docker container run -p 8080:8080 \
 
 `api-container`が実行中（STATUSが`Up xxxx`で）あることを確認する
 ```
-docker image ls
+docker container ls
 ```
 
 ## 3. 動作確認

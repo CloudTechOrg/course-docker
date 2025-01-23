@@ -6,16 +6,26 @@
 docker pull mysql:latest
 ```
 
+イメージが取得されていることを確認
+```
+docker image ls
+```
+
 ## 2. Containerの起動
 `db-container`を起動する
 ```
-docker container run --name db-container -e YSQL_ROOT_PASSWORD=cloudtech mysql:latest
+docker container run --name db-container --env MYSQL_ROOT_PASSWORD=cloudtech mysql:latest
+```
+
+`db-container`が起動されていることを確認
+```
+docker container ls
 ```
 
 ## 3. MySQLにログイン
 MySQLにログインする
 ```
-docker exec -it db-container mysql -u root -p
+docker container exec --interactive --tty db-container mysql -u root -p
 ```
 
 パスワードの入力が促されるので、Container起動時に指定した`MYSQL_ROOT_PASSWORD`の値を入力する

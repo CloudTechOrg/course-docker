@@ -15,7 +15,7 @@ document.getElementById('apiTestButton').addEventListener('click', function() {
   });
 
 document.getElementById('databaseTestButton').addEventListener('click', function() {
-  fetch(apiConfig.baseURL + '/test')
+  fetch(apiConfig.baseURL + '/dbtest')
     .then(function(response) {
       if (!response.ok) {
         throw new Error('Database response was not ok');
