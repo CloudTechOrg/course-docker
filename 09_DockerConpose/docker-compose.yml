@@ -1,12 +1,27 @@
+# Docker Networkを定義
+networks:
+  api-network:
+
+# dbの永続化ボリューム
+volumes:
+  db-data:
+
 services:
   db:
     image: mysql:latest
     container_name: db-container
     environment:
       MYSQL_ROOT_PASSWORD: cloudtech
+    volumes:
+      - db-data:/var/lib/mysql # データ永続化のためのボリューム
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro # 初期SQLのマウント
+    networks:
+      - api-network # ネットワークに所属
 
-  backend:
-    image: api-image
+  api:
+    build: # Dockerfile からビルド
+      context: ./api
+      dockerfile: Dockerfile
     container_name: api-container
     depends_on:
       - db
@@ -16,11 +31,13 @@ services:
       - DB_SERVERNAME=db-container
     ports:
       - "8080:8080"
+    networks:
+      - api-network # ネットワークに所属
 
-  frontend:
-    image: front-image
+  front:
+    build: # Dockerfile からビルド
+      context: ./front
+      dockerfile: Dockerfile
     container_name: front-container
-    depends_on:
-      - db
     ports:
       - "8081:80"
