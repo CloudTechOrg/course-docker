@@ -1,43 +1,56 @@
-# Docker Networkを定義
 networks:
   api-network:
 
-# dbの永続化ボリューム
 volumes:
   db-data:
 
 services:
   db:
-    image: mysql:latest
-    container_name: db-container
-    environment:
+    image: mysql:latest           
+    container_name: db-container  
+    environment:                  
       MYSQL_ROOT_PASSWORD: cloudtech
     volumes:
-      - db-data:/var/lib/mysql # データ永続化のためのボリューム
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro # 初期SQLのマウント
-    networks:
-      - api-network # ネットワークに所属
+      - db-data:/var/lib/mysql    
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro 
+    networks:                     
+      - api-network
+    healthcheck:                  
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pcloudtech"]
+      interval: 10s               
+      timeout: 5s                 
+      retries: 3                  
 
   api:
-    build: # Dockerfile からビルド
-      context: ./api
-      dockerfile: Dockerfile
-    container_name: api-container
+    build: 
+      context: ./api              
+      dockerfile: Dockerfile      
+    container_name: api-container 
     depends_on:
-      - db
-    environment:
+      - db                        
+    environment:                  
       - DB_USERNAME=root
       - DB_PASSWORD=cloudtech
       - DB_SERVERNAME=db-container
-    ports:
+    ports:                        
       - "8080:8080"
-    networks:
-      - api-network # ネットワークに所属
+    networks:                     
+      - api-network
+    healthcheck:                  
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 10s               
+      timeout: 5s                 
+      retries: 3                  
 
   front:
-    build: # Dockerfile からビルド
+    build: 
       context: ./front
       dockerfile: Dockerfile
     container_name: front-container
     ports:
       - "8081:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 10s               
+      timeout: 5s                 
+      retries: 3                  

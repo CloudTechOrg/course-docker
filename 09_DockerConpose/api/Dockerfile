@@ -22,6 +22,9 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o server .
 # ベースイメージを指定（Alpine Linuxの最新版）
 FROM alpine:latest
 
+# curl をインストール（ヘルスチェック用などに必要）
+RUN apk update && apk add --no-cache curl
+
 # ワーキングディレクトリを設定
 WORKDIR /root/
 
