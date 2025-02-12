@@ -14,7 +14,7 @@ docker container start db-container
 ## 1. イメージの作成
 `front-image`を作成する
 ```
-docker imagebuild -t front-image .
+docker image build -t front-image .
 ```
 
 `front-image`が作成されていることを確認する
@@ -64,7 +64,7 @@ docker image rm front-image
 ## 5. Docker Networkの削除
 `api-network`の削除
 ```
-docker network rm api-image
+docker network rm api-network
 ```
 
 `api-network`の削除確認
