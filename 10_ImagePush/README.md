@@ -1,5 +1,10 @@
-# ハンズオン手順
+# 事前準備
+今回のハンズオンでは、AWS ClIを使用します。
+CLIをインストールしていない場合、下記手順にしたがって事前にインストールをお願いします。
 
+[AWS CLI の最新バージョンのインストールまたは更新](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html)
+
+# ハンズオン手順
 ## 1.ECRリポジトリの作成
 1. 「Elastic Container Registry」のダッシュボードを開く
 2. `リポジトリを作成`をクリックします。 
