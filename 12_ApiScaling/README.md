@@ -47,18 +47,18 @@ aws ec2 create-route  \
 1. 以下のコマンドを実行し、alb-subnet-01を作成する
 ```
 aws ec2 create-subnet --vpc-id <my-vpcのID> \
-  --cidr-block 10.0.3.0/24 \
+  --cidr-block 10.0.2.0/24 \
   --availability-zone ap-northeast-1c \
-  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=alb-subnet-02}]'
+  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=alb-subnet-01}]'
 ```
 
 ## alb-subnet-02を作成
 1. 以下のコマンドを実行し、alb-subnet-01を作成する
 ```
 aws ec2 create-subnet --vpc-id <my-vpcのID> \
-  --cidr-block 10.0.2.0/24 \
-  --availability-zone ap-northeast-1a \
-  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=alb-subnet-01}]'
+  --cidr-block 10.0.3.0/24 \
+  --availability-zone ap-northeast-1c \
+  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=alb-subnet-02}]'
 ```
 
 ## alb-subnet-01にalb-routetableを関連付ける
