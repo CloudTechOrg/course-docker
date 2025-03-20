@@ -40,7 +40,7 @@ CLIをインストールしていない場合、下記手順にしたがって�
                 "ecr:CompleteLayerUpload",
                 "ecr:PutImage"
             ],
-            "Resource": "arn:aws:ecr:ap-northeast-1:<account-id>:repository/test-repository"
+            "Resource": "arn:aws:ecr:ap-northeast-1:<account-id>:repository/my-repository"
         }
     ]
 }
