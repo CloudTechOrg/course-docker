@@ -1,0 +1,23 @@
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+
+  /* ボタンの基本スタイル */
+.button {
+  background-color: #333;  /* 濃いグレー */
+  color: white;            /* テキストを白色に */
+  padding: 10px 20px;      /* 内側の余白 */
+  border: none;            /* 枠線なし */
+  border-radius: 5px;      /* 角の丸み */
+  font-size: 16px;         /* フォントサイズ */
+  cursor: pointer;         /* カーソルをポインタに */
+  transition: background-color 0.3s ease; /* 背景色の変化を滑らかに */
+}
+
+/* ホバー時のボタンスタイル */
+.button:hover {
+  background-color: #555;  /* ホバー時はやや明るいグレーに */
+}
