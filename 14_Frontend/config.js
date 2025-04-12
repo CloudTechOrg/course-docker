@@ -1,4 +1,4 @@
 const apiConfig = {
-    baseURL: 'http://localhost:8080'
+    baseURL: 'http://<DNS名>'
   };
   
