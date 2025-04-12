@@ -93,7 +93,7 @@ docker image tag front-image:latest <your-ecr-uri>:latest
 下記コマンドを実行（`your-ecr-uri`の部分はご自身のものに置き換え）
 
 ```docker
-aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin <your-ecr-uri>
+aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 125605020607.dkr.ecr.ap-northeast-1.amazonaws.com/front-repository
 ```
 
 ## 9. プッシュ
@@ -107,82 +107,77 @@ docker image push <your-ecr-uri>>y:latest
 1. ECRリポジトリの一覧から`front-repository`を選択
 2. latestタグが付いているイメージが存在することを確認
 
+# 11. front-routetableを作成
+1. 以下のコマンドを実行し、front-routetableを作成する
+```
+aws ec2 create-route-table  \
+  --vpc-id <my-vpcのID> \
+  --tag-specifications 'ResourceType=route-table,Tags=[{Key=Name,Value=front-routetable}]'
+```
+2. 以下のコマンドを実行し、front-routetableをmy-internet-gatewayに関連付ける
+```
+aws ec2 create-route  \
+  --route-table-id <front-routetableのID>  \
+  --destination-cidr-block 0.0.0.0/0  \
+  --gateway-id <my-internet-gatewayのID>
+```
 
+# 12. front-subntt-01の作成
+1. 以下のコマンドを実行し、alb-subnet-01を作成する
+```
+aws ec2 create-subnet --vpc-id <my-vpcのID> \
+  --cidr-block 10.0.7.0/24 \
+  --availability-zone ap-northeast-1a \
+  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=front-subnet-01}]'
+```
+2. 以下のコマンドを実行し、front-subnet-01をfront-routetableに関連付けする
+```
+aws ec2 associate-route-table  \
+  --route-table-id <front-routetableのID>  \
+  --subnet-id <front-subnet-01のID>
+```
 
+# 13. front-sgの作成
+1. 以下のコマンドを実行し、alb-sgを作成
+```
+aws ec2 create-security-group  \
+  --group-name front-sg  \
+  --description "front-sg"  \
+  --vpc-id <my-vpcのID>
+```
+2. 以下のコマンドを実行し、alb-sgのインバウンドルールを作成
+```
+aws ec2 authorize-security-group-ingress  \
+  --group-id <front-sgのID> \
+  --protocol tcp --port 80 --cidr 0.0.0.0/0
+```
 
-
-
-
-
-# ハンズオン手順
-## 11. front-subnet-01を作成
-1. 左側のメニューから、`サブネット`を選択
-2. 右上の`サブネットを作成`をクリック
-3. VPCとして、先ほど作成した`my-vpc`を選択
-4. サブネットの設定を以下のように入力
-    - サブネット名：`api-subnet-01`
-    - アベイラビリティゾーン：`ap-northeast-1a`
-    - IPv4サブネットCIDRブロック：`10.0.0.0/24`
-5.  入力が完了したら、`サブネットを作成`をクリック
-6. api-subnet-01が無事に作成されることを確認
-
-## 3. インターネットゲートウェイ作成
-1. 左側のメニューから`インターネットゲートウェイ`を開く
-2. 右上の`インターネットゲートウェイの作成`をクリック
-3. 名前タグに`my-internet-gateway`と入力
-4. `インターネットゲートウェイの作成`をクリック
-5. 無事にmy-internet-gatewayが作成されたら、`アクション` > `VPCにアタッチ`をクリック
-6. 使用可能なVPCに、`my-vpc`を選択
-7. `インターネットゲートウェイ`のアタッチをクリック
-
-## 4. ルートテーブルを作成
-1. 左側のメニューから、`ルートテーブル`を選択
-2. 右上の`ルートテーブルの作成`をクリック
-3. 名前に、api-routetableを入力
-4. VPCに、my-vpcを選択
-5. `ルートテーブルの作成`をクリック
-6. `ルートを編集`をクリック
-7. `ルートを追加`をクリック
-8. 送信先に`0.0.0.0/0`、ターゲットに`my-internet-gateway`を入力し、`変更を保存`をクリック
-9. 左側のメニューから、`サブネット`を選択します。
-10. `api-subnet-01`のapi部分を選択します。
-11. ルートテーブルのタブをクリックし、`ルートテーブルの関連付けを編集`をクリックします。
-12. ルートテーブルIDを、`api-routetable`に変更します。
-13. `保存`をクリックします
-
-## 5. セキュリティグループの作成
-1. 左側のメニューから、`セキュリティグループ`を選択
-2. 右上の`セキュリティグループを作成`をクリック
-3. セキュリティグループ名に`api-sg`、説明も`api-vpc`、VPCに`my-vpc`を選択
-4. インバウンド`ルールを追加`をクリックし、タイプに`カスタムTCP`、ポート範囲に`8080`、ソースに`0.0.0.0/0`を選択
-5. アウトバウンド`ルールの追加`をクリックし、タイプにすべてのトラフィック、送信先に`0.0.0.0/0`を入力します。
-6. `セキュリティグループを作成`をクリックします。
-
-## 6. タスク定義の設定
+# 14. タスク定義の設定
 1. ECSのダッシュボードを開く
 2. 左側のメニューから、`タスク定義`を選択
-3. タスク定義ファミリーに`api-task`を入力
+3. タスク定義ファミリーに`front-task`を入力
 5. コンテナーの定義以下のように入力
-    - 名前：`api-container`
-    - イメージURI：api-image、latestのECRリポジトリのURI
-    - コンテナポートは：`8080`とします
+    - 名前：`front-container`
+    - イメージURI：front-image、latestのECRリポジトリのURI
+    - コンテナポートは：`80`とします
 6. それ以外はデフォルトのまま`作成`ボタンをクリックします。
 
-# 8. ECSサービスの作成
-1. 先ほど作成した`MyCluster`をクリック
+# 15. ECSサービスの作成
+1. 左側のメニューから`クラスター`を選択し、`MyCluster`をクリック
 2. `作成`をクリック
-3. `タスク定義のファミリー`に、`api-task`のタスク定義を選択。リビジョンは、`(最新)`とつくものを選択
+3. `タスク定義のファミリー`に、`front-task`のタスク定義を選択。リビジョンは、`(最新)`とつくものを選択
+4. サービス名に`front-service`と入力
 4. ネットワーキングの部分を下記のように選択
     - ネットワーク：`my-vpc`
-    - サブネット：`api-subnet-01`
+    - サブネット：`front-subnet-01`
     - セキュリティグループ：`api-sg`
 5. `作成`をクリックします。
 7. `api-task`が起動することを確認
 
-# 9. 動作確認
-1. `api-service`をクリック
+# 16. 動作確認
+1. `front-service`をクリック
 2. `タスク`のタブを開く
 3. 表示されるタスクのIDをクリック
 4. パブリックIPアドレスを控える
-5. ブラウザで新しいタブを開き、`http://<パブリックIPアドレス>:8080`を実行
-6. `API接続テストが成功しました`というメッセージが表示されることを確認
+5. ブラウザで新しいタブを開き、`http://<パブリックIPアドレス>`を実行
+6. `API Test`ボタンをクリックすると、`API接続テストが成功しました`というメッセージが表示されることを確認
