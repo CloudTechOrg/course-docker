@@ -7,7 +7,7 @@ docker compose up -d
 
 ## 2. Docker Composeの起動確認
 ```
-docker compose -p
+docker compose ps
 ```
 
 ## 3. 動作確認
