@@ -101,7 +101,7 @@ aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS
 下記コマンドを実行（`your-ecr-uri`の部分はご自身のものに置き換え）
 
 ```docker
-docker image push <your-ecr-uri>>y:latest
+docker image push <your-ecr-uri>>:latest
 ```
 
 # 10. ECRリポジトリの確認
