@@ -38,7 +38,8 @@ CLIをインストールしていない場合、下記手順にしたがって�
                 "ecr:InitiateLayerUpload",
                 "ecr:UploadLayerPart",
                 "ecr:CompleteLayerUpload",
-                "ecr:PutImage"
+                "ecr:PutImage",
+                "ecr:BatchGetImage"
             ],
             "Resource": "arn:aws:ecr:ap-northeast-1:<account-id>:repository/my-repository"
         }
