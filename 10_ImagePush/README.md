@@ -80,7 +80,7 @@ CLIをインストールしていない場合、下記手順にしたがって�
 下記コマンドを実行
 
 ```docker
-docker image build --platform linux/x86_64 -t api-image . 
+docker image build --platform linux/amd64 -t api-image .
 ```
 
 ## 7. タグ付け
